@@ -18,7 +18,7 @@ def _get_raw_body(event):
     return body or ""
 
 
-def lambda_handler(event, context):
+def index_handler(event, context):
     """
     Basic webhook receiver:
       - logs headers, query params, and JSON payload
@@ -44,7 +44,7 @@ def lambda_handler(event, context):
 
         # Log context for debugging
         headers = event.get("headers") or {}
-        query = event.get("queryStirng Parameters") or {}
+        query = event.get("queryString Parameters") or {}
         logger.info("Headers: %s", json.dumps(headers, indent=2))
         logger.info("Query: %s", json.dumps(query, indent=2))
         logger.info("Payload: %s", json.dumps(payload, indent=2))
