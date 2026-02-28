@@ -1,0 +1,17 @@
+digraph G {
+  rankdir = "RL";
+  node [shape = rect, fontname = "sans-serif"];
+  "data.aws_ssm_parameter.al2023_x86" [label="data.aws_ssm_parameter.al2023_x86"];
+  "aws_instance.test-spot-ec2-instance" [label="aws_instance.test-spot-ec2-instance"];
+  "aws_security_group.test-spot-sg" [label="aws_security_group.test-spot-sg"];
+  "aws_vpc_security_group_egress_rule.allow_all_egress" [label="aws_vpc_security_group_egress_rule.allow_all_egress"];
+  "aws_vpc_security_group_ingress_rule.ssh" [label="aws_vpc_security_group_ingress_rule.ssh"];
+  "aws_vpc_security_group_ingress_rule.web-server" [label="aws_vpc_security_group_ingress_rule.web-server"];
+  "aws_vpc_security_group_ingress_rule.web-server-tls" [label="aws_vpc_security_group_ingress_rule.web-server-tls"];
+  "aws_instance.test-spot-ec2-instance" -> "data.aws_ssm_parameter.al2023_x86";
+  "aws_instance.test-spot-ec2-instance" -> "aws_security_group.test-spot-sg";
+  "aws_vpc_security_group_egress_rule.allow_all_egress" -> "aws_security_group.test-spot-sg";
+  "aws_vpc_security_group_ingress_rule.ssh" -> "aws_security_group.test-spot-sg";
+  "aws_vpc_security_group_ingress_rule.web-server" -> "aws_security_group.test-spot-sg";
+  "aws_vpc_security_group_ingress_rule.web-server-tls" -> "aws_security_group.test-spot-sg";
+}
