@@ -36,4 +36,27 @@ This repository contains reusable Terraform configurations for infrastructure as
 
 ## Web-hook to AWS API Gateway to Lambda
 
+Sample payload
+
+```
+{
+  "id": "evt_1234567890",
+  "type": "order.created",
+  "created_at": "2026-02-28T16:40:00Z",
+  "data": {
+    "order_id": "ORD-98765",
+    "amount": 129.99,
+    "currency": "GBP"
+  }
+}
+```
+
+Test:
+
+```
+curl -i https://<api-id>.execute-api.<region>.amazonaws.com/webhook \
+  -X POST \
+  -H 'Content-Type: application/json' \
+  -d '{"id":"evt_123456","type":"order.created","created_at":"2026-02-28T16:40:00Z","data":{"order_id":"ORD-98765","amount":129.99,"currency":"GBP"}}'
+```
 
