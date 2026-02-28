@@ -25,9 +25,15 @@ ENV=dev make plan
 terraform apply dev.plan
 ```
 To destroy the environment:
-
+```
 ENV=dev make destroy
-
+```
 # Terraform Template Repository
 
 This repository contains reusable Terraform configurations for infrastructure as code.
+
+# Proof Of Concepts:
+
+## Web-hook to AWS API Gateway to Lambda
+
+
