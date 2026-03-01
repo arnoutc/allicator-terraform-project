@@ -7,7 +7,7 @@ data "archive_file" "eventbridge_consumer_lambda_zip" {
 resource "aws_lambda_function" "consumer" {
   function_name = "webhook-event-consumer"
   role          = aws_iam_role.lambda_exec.arn
-  handler       = "eventbridge_consumer_lambda.lambda_handler"
+  handler       = "eventbridge-consumer-lambda.lambda_handler"
   runtime       = "python3.14"
   filename      = data.archive_file.eventbridge_consumer_lambda_zip.output_path
   architectures = ["arm64"]

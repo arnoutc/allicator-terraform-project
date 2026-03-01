@@ -60,7 +60,7 @@ def index_handler(event, context):
             Entries=[{
                 "EventBusName": BUS,
                 "Source": "webhook-handler",
-                "DetailType": payload.get("type", "webhook.event"),
+                "DetailType": payload.get("type", "order.created"),
                 "Detail": json.dumps({
                     "headers": headers,
                     "query": query,

@@ -37,7 +37,7 @@ variable "event_bus_name" {
 variable "event_source" {
   description = "The 'source' field used by the ingress lambda when putting events"
   type        = string
-  default     = "webhook.ingress"
+  default     = "webhook-handler"
 }
 
 variable "event_detail_types" {

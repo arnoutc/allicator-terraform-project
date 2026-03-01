@@ -14,7 +14,7 @@ def lambda_handler(event, context):
     # TODO: persist to S3/DynamoDB, etc.
     # Route by detail-type if needed:
     # if detail_type == "order.created": ...
-    if detail_type == "webhook.event":
+    if detail_type == "order.created":
         logger.info("Webhook event received: %s", payload)
         logger.info("Headers: %s", payload.get("headers"))
         logger.info("Query: %s", payload.get("query"))
