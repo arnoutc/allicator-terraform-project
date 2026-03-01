@@ -14,7 +14,8 @@ resource "aws_lambda_function" "api-gateway-consumer-lambda" {
 
   environment {
     variables = {
-      WEBHOOK_SECRET = "replace-with-secret-or-use-secrets-manager"
+      WEBHOOK_SECRET = "replace-with-secret-or-use-secrets-manager",
+      EVENT_BUS_NAME = aws_cloudwatch_event_bus.name
     }
   }
 }
